@@ -4,6 +4,7 @@ Xu, L., Li, H., Shen, H., Lei, M., & Jiang, T. (2024). PGCS: Physical Law embedd
 Arxiv: https://arxiv.org/abs/2410.16955
 # Code
 Decirrus.py:This script is designed for the rapid removal of cirrus clouds from Landsat 8/9 imagery, corresponding to the PGCS_M.The required input data is top-of-atmosphere reflectance data.
+
 Gen_dataset.py:This script can be used to generate an extensive "cloudy & cloud-free" paired dataset. It also supports radiometric calibration of DN (Digital Number) data and the cropping of ROI (Regions of Interest).The pre-trained model for this script can be downloaded from BaiduNetdisk. Link: https://pan.baidu.com/s/1ZpuB9qxVhHSOIxdMGM4Lhw?pwd=pgcs key：pgcs
 
 # Sample
