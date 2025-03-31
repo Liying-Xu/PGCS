@@ -1,7 +1,6 @@
 # PGCS
-Xu, L., Li, H., Shen, H., Lei, M., & Jiang, T. (2024). PGCS: Physical Law embedded Generative Cloud Synthesis in Remote Sensing Images.
+L. Xu, H. Li*, H. Shen, M. Lei and T. Jiang, "PGCS: Physical Law embedded Generative Cloud Synthesis in Remote Sensing Images," in IEEE Transactions on Geoscience and Remote Sensing, doi: 10.1109/TGRS.2025.3553239. 
 
-Arxiv: https://arxiv.org/abs/2410.16955
 # Code
 Decirrus.py:This script is designed for the rapid removal of cirrus clouds from Landsat 8/9 imagery, corresponding to the PGCS_M.The required input data is top-of-atmosphere reflectance data.
 
