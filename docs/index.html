@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071c28">
+  <meta name="description" content="PGCS synthesizes physically grounded multispectral clouds for remote sensing imagery. Explore the method, results, and research code.">
+  <title>PGCS — Physical Law Embedded Generative Cloud Synthesis</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23071c28'/%3E%3Ctext x='32' y='43' fill='%2388d6db' font-size='34' font-family='Arial' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="PGCS, back to top"><span class="mark" aria-hidden="true">P</span><span>PGCS<span class="wordmark-sub"> / research project</span></span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#method">Method</a><a href="#results">Results</a><a href="#applications">Applications</a><a href="#resources">Resources</a>
+    </nav>
+    <a class="header-code" href="https://github.com/Liying-Xu/PGCS" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-inner page-width">
+        <div class="hero-copy">
+          <p class="eyebrow light"><span class="eyebrow-line"></span> IEEE Transactions on Geoscience and Remote Sensing · 2025</p>
+          <h1 id="hero-title">Make clouds.<br><em>Keep the physics.</em></h1>
+          <p class="hero-description">Physical law embedded generative cloud synthesis for realistic, diverse multispectral remote sensing imagery.</p>
+          <p class="hero-detail">PGCS learns the spatial structure of clouds, then uses atmospheric scattering relationships to synthesize their spectral response. The resulting clouds can be combined with clear observations to form aligned cloudy and cloud-free pairs.</p>
+          <div class="hero-actions"><a class="button button-accent" href="#samples">Explore results <span aria-hidden="true">↘</span></a><a class="text-link light-link" href="https://doi.org/10.1109/TGRS.2025.3553239" target="_blank" rel="noopener noreferrer">Read the paper <span aria-hidden="true">↗</span></a></div>
+          <div class="hero-meta"><span><strong>02</strong> synthesis phases</span><span><strong>03</strong> tested sensor families</span><span><strong>∞</strong> possible cloud patterns</span></div>
+        </div>
+        <div class="hero-visual" id="samples">
+          <div class="visual-heading"><div><span class="overline">01 / IMAGE LAB</span><h2>Cloud synthesis in context</h2></div><span class="live-dot">PRE-GENERATED EXAMPLES</span></div>
+          <div class="compare" data-compare>
+            <img class="compare-before" id="compare-before" src="./assets/scene-01-clear.jpg" alt="Clear satellite view of scene 01">
+            <div class="compare-after-wrap" id="compare-after-wrap"><img class="compare-after" id="compare-after" src="./assets/scene-01-cloudy.jpg" alt="The same scene with a PGCS-generated cloud"></div>
+            <span class="compare-label before-label">CLEAR INPUT</span><span class="compare-label after-label">PGCS SYNTHESIS</span>
+            <div class="compare-handle" id="compare-handle" aria-hidden="true"><span>‹ ›</span></div>
+            <input class="compare-range" id="compare-range" type="range" min="0" max="100" value="52" aria-label="Reveal clear input or synthesized cloud image">
+          </div>
+          <div class="scene-picker" role="group" aria-label="Choose a comparison scene">
+            <button type="button" class="scene-button is-active" data-scene="01" aria-pressed="true"><span>01</span> Sample 01</button>
+            <button type="button" class="scene-button" data-scene="02" aria-pressed="false"><span>02</span> Sample 02</button>
+            <button type="button" class="scene-button" data-scene="03" aria-pressed="false"><span>03</span> Sample 03</button>
+          </div>
+          <p class="visual-caption" id="scene-caption">Paired author-provided Landsat 8/9 example · sample 01. Drag the divider to compare identical ground content.</p>
+        </div>
+      </div>
+      <div class="hero-bottom page-width"><span>Scroll to explore the research</span><span aria-hidden="true">↓</span></div>
+    </section>
+
+    <section class="section method-section" id="method" aria-labelledby="method-title">
+      <div class="page-width">
+        <div class="section-intro"><p class="eyebrow"><span class="eyebrow-line"></span> THE METHOD</p><h2 id="method-title">Generation meets<br>radiative physics.</h2><p>Two complementary phases separate cloud appearance from its wavelength-dependent radiance. A final composition step turns synthesis into paired training data.</p></div>
+        <div class="method-grid">
+          <div class="method-steps">
+            <article class="method-step"><span class="step-number">01</span><div><h3>Spatial synthesis</h3><p>A StyleGAN-based generator learns cirrus-band cloud morphology and produces varied single-channel cloud fields from random seeds.</p></div></article>
+            <article class="method-step"><span class="step-number">02</span><div><h3>Spectral synthesis</h3><p>Local statistics and global fitting connect cloud radiance to a scattering parameter, transferring the generated cloud across spectral bands. Sensor-specific channel offsets are then applied.</p></div></article>
+            <article class="method-step"><span class="step-number">03</span><div><h3>Paired imagery</h3><p>Synthesized multispectral cloud radiance is added to clear surface observations, yielding matched clear, cloud, and cloudy images.</p></div></article>
+          </div>
+          <figure class="framework-figure"><img src="./assets/pgcs-framework.png" alt="PGCS framework: random seed enters StyleGAN to produce a single-channel cloud; scattering law and channel offset produce a multichannel cloud" loading="lazy"><figcaption>PGCS framework from the authors’ figure materials. The paper details the local statistics and global fitting used in phase two.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section results-section" id="results" aria-labelledby="results-title">
+      <div class="page-width"><div class="section-intro results-intro"><p class="eyebrow"><span class="eyebrow-line"></span> VISUAL EVIDENCE</p><h2 id="results-title">One scene.<br>Different cloud density.</h2><p>The author-provided sequence below keeps the ground scene fixed while cloud thickness increases. These are saved model outputs, so switching states is instant and does not call a GPU.</p></div>
+        <div class="density-head"><span class="overline">02 / THICKNESS SERIES</span><div class="density-switch" role="group" aria-label="Choose thickness series"><button type="button" data-series="1" class="is-active" aria-pressed="true">Scene A</button><button type="button" data-series="2" aria-pressed="false">Scene B</button></div></div>
+        <div class="density-grid"><figure><img id="density-light" src="./assets/thickness-1-light.jpg" alt="Light simulated cloud over scene A" loading="lazy"><figcaption><span>01</span> Light</figcaption></figure><figure><img id="density-medium" src="./assets/thickness-1-medium.jpg" alt="Medium simulated cloud over scene A" loading="lazy"><figcaption><span>02</span> Medium</figcaption></figure><figure><img id="density-dense" src="./assets/thickness-1-dense.jpg" alt="Denser simulated cloud over scene A" loading="lazy"><figcaption><span>03</span> Dense</figcaption></figure></div>
+        <div class="morphology"><div class="morphology-heading"><div><p class="overline">03 / MORPHOLOGY</p><h3>Variety in shape,<br>not just intensity.</h3></div><p>Selected generated single-channel cloud patterns from the paper’s cloud-species analysis.</p></div><div class="morphology-grid"><figure><img src="./assets/cloud-Ci_fib.jpg" alt="Generated fibrous cirrus pattern" loading="lazy"><figcaption>Fibrous</figcaption></figure><figure><img src="./assets/cloud-Ci_unc.jpg" alt="Generated uncinus cirrus pattern" loading="lazy"><figcaption>Uncinus</figcaption></figure><figure><img src="./assets/cloud-Cc_cas.jpg" alt="Generated castellanus cirrocumulus pattern" loading="lazy"><figcaption>Castellanus</figcaption></figure><figure><img src="./assets/cloud-Cs_neb.jpg" alt="Generated nebulous cirrostratus pattern" loading="lazy"><figcaption>Nebulous</figcaption></figure></div></div>
+      </div>
+    </section>
+
+    <section class="section evidence-section" aria-labelledby="evidence-title"><div class="page-width evidence-grid"><div><p class="eyebrow"><span class="eyebrow-line"></span> EVALUATION</p><h2 id="evidence-title">Beyond visual plausibility.</h2><p>The study evaluates spatial cloud patterns, the spectral synthesis model, comparisons with three cloud synthesis approaches, and the value of PGCS data for thin-cloud correction.</p><a class="text-link" href="https://doi.org/10.1109/TGRS.2025.3553239" target="_blank" rel="noopener noreferrer">Methods and complete results in the paper <span aria-hidden="true">↗</span></a></div><div class="evidence-facts"><div><strong>80.06–91.89%</strong><span>Reported histogram overlap across five spatial-synthesis experiments</span></div><div><strong>Landsat 8/9</strong><span>Primary cloud synthesis and quantitative evaluation setting</span></div><div><strong>Sentinel-2 + Gaofen-2</strong><span>Additional sensor applications examined in the paper</span></div></div></div></section>
+
+    <section class="section application-section" id="applications" aria-labelledby="applications-title"><div class="page-width application-grid"><div><p class="eyebrow"><span class="eyebrow-line"></span> DOWNSTREAM APPLICATION</p><h2 id="applications-title">Synthetic pairs support cloud correction.</h2><p>PGCS is a cloud synthesis method. The paper also investigates two correction approaches built from it: <strong>PGCS_M</strong>, a model-driven method using the cirrus band, and <strong>PGCS_D</strong>, a data-driven method trained with synthetic pairs.</p><p>These correction results demonstrate a use of PGCS-generated data; they are not the output of the online synthesis demo.</p></div><div class="application-aside"><span class="overline">FROM CLEAR INPUT TO DATA</span><ol><li><span>01</span> Clear multispectral observation</li><li><span>02</span> Generated cloud radiance</li><li><span>03</span> Aligned clear / cloudy pair</li><li><span>04</span> Cloud-related downstream tasks</li></ol></div></div></section>
+
+    <section class="section resources-section" id="resources" aria-labelledby="resources-title"><div class="page-width"><div class="section-intro"><p class="eyebrow"><span class="eyebrow-line"></span> ACCESS THE WORK</p><h2 id="resources-title">Paper, code, and demo.</h2><p>Start with the publication or the released research scripts. The integrated desktop module supports single-scene masking, paired dataset construction, and designated simulation; its packaged executable and private model weights are not hosted on this site.</p></div><div class="resource-list"><a href="https://doi.org/10.1109/TGRS.2025.3553239" target="_blank" rel="noopener noreferrer"><span>01 / PUBLICATION</span><strong>Read the TGRS article</strong><span class="resource-arrow" aria-hidden="true">↗</span></a><a href="https://github.com/Liying-Xu/PGCS" target="_blank" rel="noopener noreferrer"><span>02 / SOURCE CODE</span><strong>Explore the PGCS repository</strong><span class="resource-arrow" aria-hidden="true">↗</span></a><a href="https://arxiv.org/abs/2410.16955" target="_blank" rel="noopener noreferrer"><span>03 / OPEN MANUSCRIPT</span><strong>Read the arXiv version</strong><span class="resource-arrow" aria-hidden="true">↗</span></a></div><div class="demo-status"><div><span class="status-symbol" aria-hidden="true"></span><div><strong>Live GPU demo: validation pending</strong><p>The current gallery uses real, pre-generated outputs. A Gradio demo will appear here only after the CUDA pipeline is verified on a compatible ZeroGPU environment. The planned demo accepts a preset scene or a small clear TOA GeoTIFF patch.</p></div></div><a href="https://huggingface.co/docs/hub/spaces-zerogpu" target="_blank" rel="noopener noreferrer">About ZeroGPU <span aria-hidden="true">↗</span></a></div></div></section>
+
+    <section class="citation-section" aria-labelledby="citation-title"><div class="page-width citation-grid"><div><p class="eyebrow light"><span class="eyebrow-line"></span> CITATION</p><h2 id="citation-title">Build on the work.</h2><p>If PGCS is useful in your research, please cite the published article.</p></div><div class="citation-box"><button type="button" id="copy-citation">Copy BibTeX</button><pre id="bibtex">@article{xu2025pgcs,
+  title={PGCS: Physical Law Embedded Generative Cloud Synthesis in Remote Sensing Images},
+  author={Xu, Liying and Li, Huifang and Shen, Huanfeng and Lei, Mingyang and Jiang, Tao},
+  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  volume={63},
+  year={2025},
+  doi={10.1109/TGRS.2025.3553239}
+}</pre></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="page-width"><div><span class="footer-mark">PGCS</span><p>Physical law embedded generative cloud synthesis<br>in remote sensing images.</p></div><div><a href="https://github.com/Liying-Xu/PGCS" target="_blank" rel="noopener noreferrer">Code ↗</a><a href="https://doi.org/10.1109/TGRS.2025.3553239" target="_blank" rel="noopener noreferrer">Paper ↗</a><a href="#top">Back to top ↑</a></div></div></footer>
+</body>
+</html>

@@ -14,3 +14,7 @@ The figures below show the effect of PGCS in the synthesis of cloud  and cloudy 
 
 # Acknowledgments
 Our code is inspired by [StyleGAN](https://github.com/NVlabs/stylegan3)
+
+## Project website
+
+The [project-page source](docs/) presents the method, author-provided visual examples, evaluation context, and citation. Once GitHub Pages is enabled for `main` / `docs`, the page will be available at https://liying-xu.github.io/PGCS/. The live GPU demo is pending runtime validation; no model weights are published here.
