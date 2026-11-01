@@ -5,6 +5,8 @@ L. Xu, H. Li*, H. Shen, M. Lei and T. Jiang, "PGCS: Physical Law embedded Genera
 
 - [Project homepage](https://liying-xu.github.io/PGCS/): method, synthesis results, cloud correction results, and software interface.
 - Download PGCS for Windows: [Part 1](https://github.com/Liying-Xu/PGCS/releases/download/software-v1.0.0/PGCS-Software-1-of-2.zip) · [Part 2](https://github.com/Liying-Xu/PGCS/releases/download/software-v1.0.0/PGCS-Software-2-of-2.zip) · [SHA-256 checksums](https://github.com/Liying-Xu/PGCS/releases/download/software-v1.0.0/SHA256SUMS.txt). Download **both** ZIP parts, extract them into the same folder, then run `CloudSynUI.exe`. The software requires a compatible NVIDIA GPU/CUDA environment. See the [release notes](https://github.com/Liying-Xu/PGCS/releases/tag/software-v1.0.0) for details.
+<img width="982" height="562" alt="image" src="https://github.com/user-attachments/assets/2f5310a4-b157-40bf-bf72-9ce3e8b056ea" />
+
 
 # Code
 Decirrus.py:This script is designed for the rapid removal of cirrus clouds from Landsat 8/9 imagery, corresponding to the PGCS_M.The required input data is top-of-atmosphere reflectance data.
