@@ -1,6 +1,11 @@
 # PGCS
 L. Xu, H. Li*, H. Shen, M. Lei and T. Jiang, "PGCS: Physical Law embedded Generative Cloud Synthesis in Remote Sensing Images," in IEEE Transactions on Geoscience and Remote Sensing, doi: 10.1109/TGRS.2025.3553239. 
 
+## Project and software
+
+- [Project homepage](https://liying-xu.github.io/PGCS/): method, synthesis results, cloud correction results, and software interface.
+- [Download PGCS for Windows](https://github.com/Liying-Xu/PGCS/releases/tag/software-v1.0.0): download **both** software ZIP parts, extract them into the same folder, then run `CloudSynUI.exe`. The software requires a compatible NVIDIA GPU/CUDA environment.
+
 # Code
 Decirrus.py:This script is designed for the rapid removal of cirrus clouds from Landsat 8/9 imagery, corresponding to the PGCS_M.The required input data is top-of-atmosphere reflectance data.
 
